@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios de Desarrollo Web</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <header class="gradient-bg text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-5xl font-bold mb-6">Desarrollo Web Profesional</h1>
+            <p class="text-xl mb-8">Transformamos tu negocio con sitios web modernos y efectivos</p>
+            <div class="space-x-4">
+                <button onclick="mostrarFormulario()" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition">
+                    Contactar
+                </button>
+                <button onclick="mostrarCotizacion()" class="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition">
+                    Solicitar Cotización
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Servicios -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12">Nuestros Servicios</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Servicio 1 -->
+                <div class="service-card bg-white p-6 rounded-lg shadow-lg">
+                    <div class="text-4xl mb-4">🌐</div>
+                    <h3 class="text-xl font-bold mb-2">Diseño Web Responsivo</h3>
+                    <p class="text-gray-600">Sitios web adaptables a todos los dispositivos</p>
+                </div>
+                <!-- Servicio 2 -->
+                <div class="service-card bg-white p-6 rounded-lg shadow-lg">
+                    <div class="text-4xl mb-4">⚡</div>
+                    <h3 class="text-xl font-bold mb-2">Optimización SEO</h3>
+                    <p class="text-gray-600">Mejora tu visibilidad en los buscadores</p>
+                </div>
+                <!-- Servicio 3 -->
+                <div class="service-card bg-white p-6 rounded-lg shadow-lg">
+                    <div class="text-4xl mb-4">🛠️</div>
+                    <h3 class="text-xl font-bold mb-2">Mantenimiento Web</h3>
+                    <p class="text-gray-600">Soporte técnico continuo para tu sitio</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulario de Contacto (oculto por defecto) -->
+    <div id="formularioContacto" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-lg p-8 max-w-md w-full">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold">Contáctanos</h3>
+                <button onclick="cerrarFormulario()" class="text-gray-500 hover:text-gray-700">✕</button>
+            </div>
+            <form onsubmit="enviarFormulario(event)" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium mb-2">Nombre</label>
+                    <input type="text" required class="w-full p-2 border rounded-md" placeholder="Tu nombre">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-2">Email</label>
+                    <input type="email" required class="w-full p-2 border rounded-md" placeholder="tu@email.com">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-2">Mensaje</label>
+                    <textarea required class="w-full p-2 border rounded-md" rows="4" placeholder="¿En qué podemos ayudarte?"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition">
+                    Enviar Mensaje
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de Cotización (oculto por defecto) -->
+    <div id="modalCotizacion" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-lg p-8 max-w-md w-full">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold">Solicitar Cotización</h3>
+                <button onclick="cerrarCotizacion()" class="text-gray-500 hover:text-gray-700">✕</button>
+            </div>
+            <form onsubmit="enviarCotizacion(event)" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium mb-2">Nombre</label>
+                    <input type="text" required class="w-full p-2 border rounded-md" placeholder="Tu nombre">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-2">Email</label>
+                    <input type="email" required class="w-full p-2 border rounded-md" placeholder="tu@email.com">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-2">Tipo de Proyecto</label>
+                    <select required class="w-full p-2 border rounded-md">
+                        <option value="">Selecciona una opción</option>
+                        <option value="sitio-web">Sitio Web</option>
+                        <option value="tienda-online">Tienda Online</option>
+                        <option value="landing-page">Landing Page</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium mb-2">Detalles del Proyecto</label>
+                    <textarea required class="w-full p-2 border rounded-md" rows="4" placeholder="Describe tu proyecto"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition">
+                    Solicitar Cotización
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function mostrarFormulario() {
+            document.getElementById('formularioContacto').style.display = 'flex';
+        }
+
+        function cerrarFormulario() {
+            document.getElementById('formularioContacto').style.display = 'none';
+        }
+
+        function mostrarCotizacion() {
+            document.getElementById('modalCotizacion').style.display = 'flex';
+        }
+
+        function cerrarCotizacion() {
+            document.getElementById('modalCotizacion').style.display = 'none';
+        }
+
+        function enviarFormulario(event) {
+            event.preventDefault();
+            alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
+            cerrarFormulario();
+        }
+
+        function enviarCotizacion(event) {
+            event.preventDefault();
+            alert('¡Gracias por tu solicitud! Te enviaremos la cotización pronto.');
+            cerrarCotizacion();
+        }
+    </script>
+</body>
+</html>
