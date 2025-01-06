@@ -3,93 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servicios Web Profesionales | Desarrollo Web Premium</title>
+    <title>Servicios Web Profesionales | Guatemala</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <style>
-        .hero-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-                        url('/api/placeholder/1920/1080') center/cover;
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
             position: relative;
             overflow: hidden;
         }
-
-        .hero-section::before {
+        
+        .gradient-bg::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(45deg, #0c0c70, #1a1aff);
-            opacity: 0.8;
-            animation: gradientBG 10s ease infinite;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1'/%3E%3C/svg%3E");
+            animation: moveBackground 30s linear infinite;
         }
 
-        @keyframes gradientBG {
-            0% { opacity: 0.7; }
-            50% { opacity: 0.9; }
-            100% { opacity: 0.7; }
+        @keyframes moveBackground {
+            0% { background-position: 0 0; }
+            100% { background-position: 100px 100px; }
+        }
+
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+
+        .service-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         }
 
         .floating {
-            animation: float 6s ease-in-out infinite;
+            animation: floating 3s ease-in-out infinite;
         }
 
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
+        @keyframes floating {
+            0% { transform: translate(0, 0px) rotate(0deg); }
+            50% { transform: translate(0, 15px) rotate(5deg); }
+            100% { transform: translate(0, -0px) rotate(0deg); }   
         }
 
         .price-card {
-            transition: all 0.5s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
         }
 
         .price-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transform: scale(1.05);
+            z-index: 10;
         }
 
-        .price-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, #2193b0, #6dd5ed);
-            opacity: 0;
-            transition: 0.5s;
-            z-index: -1;
-        }
-
-        .price-card:hover::before {
-            opacity: 0.1;
-        }
-
-        .promocion-badge {
+        .promo-badge {
             position: absolute;
             top: 0;
             right: 0;
-            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            background: linear-gradient(135deg, #ff4e50, #f9d423);
+            color: white;
             padding: 0.5rem 1rem;
-            border-radius: 0 0.5rem;
-            transform: rotate(0);
-            animation: shake 2s ease-in-out infinite;
+            transform: rotate(45deg) translateX(30%) translateY(-10%);
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
-        @keyframes shake {
-            0%, 100% { transform: rotate(0); }
-            25% { transform: rotate(-5deg); }
-            75% { transform: rotate(5deg); }
-        }
-
-        .whatsapp-button {
+        .whatsapp-btn {
             position: fixed;
             bottom: 20px;
             right: 20px;
@@ -97,172 +99,132 @@
             animation: pulse 2s infinite;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { transform: scale(1.1); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-            100% { transform: scale(1); }
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
         }
 
-        .service-card {
-            transition: all 0.3s ease;
-            cursor: pointer;
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-30px); }
+            60% { transform: translateY(-15px); }
         }
-
-        .service-card:hover {
-            transform: scale(1.05);
-        }
-
-        .scrolled-nav {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-        }
-
     </style>
 </head>
-<body class="bg-gray-50">
-    <!-- Navbar Fijo -->
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4">
-        <div class="container mx-auto px-4 flex justify-between items-center">
-            <div class="text-2xl font-bold text-white">WebDev<span class="text-blue-500">Pro</span></div>
-            <div class="hidden md:flex space-x-6">
-                <a href="#servicios" class="text-white hover:text-blue-300 transition">Servicios</a>
-                <a href="#planes" class="text-white hover:text-blue-300 transition">Planes</a>
-                <a href="https://wa.me/50237793306" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition">
-                    Contactar
-                </a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section con Paralax -->
-    <section class="hero-section min-h-screen flex items-center justify-center relative py-32">
+<body class="overflow-x-hidden">
+    <!-- Hero Section -->
+    <header class="gradient-bg text-white py-32 relative">
         <div class="container mx-auto px-4 text-center relative z-10">
-            <div data-aos="fade-down" data-aos-duration="1000">
-                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6">Desarrollo Web Profesional</h1>
-                <p class="text-xl md:text-2xl text-gray-200 mb-8">Transformamos tu visión en una presencia digital extraordinaria</p>
-            </div>
-            <div class="space-y-4 md:space-y-0 md:space-x-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-                <a href="#planes" class="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-700 transform hover:scale-105 transition">
-                    Ver Promociones 🔥
+            <h1 class="text-6xl md:text-7xl font-bold mb-6 animate__animated animate__fadeInDown">
+                Desarrollo Web Elite
+            </h1>
+            <p class="text-2xl md:text-3xl mb-8 animate__animated animate__fadeInUp">
+                Transformamos tu visión en una presencia digital impactante
+            </p>
+            <div class="space-x-4 animate__animated animate__fadeInUp">
+                <a href="https://wa.me/50237793306" target="_blank" 
+                   class="inline-block bg-green-500 text-white px-8 py-4 rounded-lg font-bold hover:bg-green-600 transition transform hover:scale-105">
+                    💬 Contactar por WhatsApp
                 </a>
-                <a href="https://wa.me/50237793306" class="inline-block bg-green-500 text-white px-8 py-4 rounded-lg font-bold hover:bg-green-600 transform hover:scale-105 transition">
-                    Contactar por WhatsApp 💬
-                </a>
+                <button onclick="mostrarCotizacion()" 
+                        class="inline-block border-2 border-white text-white px-8 py-4 rounded-lg font-bold hover:bg-white hover:text-blue-900 transition transform hover:scale-105">
+                    🚀 Solicitar Cotización
+                </button>
             </div>
         </div>
-    </section>
+        <div class="scroll-indicator">
+            <svg class="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </header>
 
-    <!-- Servicios con animaciones -->
-    <section id="servicios" class="py-20 bg-white">
+    <!-- Servicios Premium -->
+    <section class="py-20 bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16" data-aos="fade-up">Nuestros Servicios Premium</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <h2 class="text-4xl font-bold text-center mb-16">Servicios Premium</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                 <!-- Servicio 1 -->
-                <div class="service-card bg-white rounded-xl shadow-lg p-8" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-card bg-gradient-to-br from-blue-500 to-blue-700 p-8 rounded-2xl text-white">
                     <div class="text-5xl mb-6 floating">🎨</div>
-                    <h3 class="text-2xl font-bold mb-4">Diseño Personalizado</h3>
-                    <p class="text-gray-600">Diseños únicos que reflejan tu marca y cautivan a tus visitantes</p>
+                    <h3 class="text-2xl font-bold mb-4">Diseño Web Exclusivo</h3>
+                    <ul class="space-y-3">
+                        <li>✓ Diseño personalizado único</li>
+                        <li>✓ Adaptable a todos los dispositivos</li>
+                        <li>✓ Experiencia de usuario premium</li>
+                    </ul>
                 </div>
                 <!-- Servicio 2 -->
-                <div class="service-card bg-white rounded-xl shadow-lg p-8" data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-5xl mb-6 floating">⚡</div>
-                    <h3 class="text-2xl font-bold mb-4">Alto Rendimiento</h3>
-                    <p class="text-gray-600">Sitios ultra rápidos optimizados para una experiencia perfecta</p>
+                <div class="service-card bg-gradient-to-br from-purple-500 to-purple-700 p-8 rounded-2xl text-white">
+                    <div class="text-5xl mb-6 floating">🚀</div>
+                    <h3 class="text-2xl font-bold mb-4">Desarrollo Avanzado</h3>
+                    <ul class="space-y-3">
+                        <li>✓ Tecnologías de última generación</li>
+                        <li>✓ Alto rendimiento garantizado</li>
+                        <li>✓ Código optimizado</li>
+                    </ul>
                 </div>
                 <!-- Servicio 3 -->
-                <div class="service-card bg-white rounded-xl shadow-lg p-8" data-aos="fade-up" data-aos-delay="300">
+                <div class="service-card bg-gradient-to-br from-indigo-500 to-indigo-700 p-8 rounded-2xl text-white">
                     <div class="text-5xl mb-6 floating">📱</div>
-                    <h3 class="text-2xl font-bold mb-4">100% Responsive</h3>
-                    <p class="text-gray-600">Perfecta visualización en todos los dispositivos</p>
+                    <h3 class="text-2xl font-bold mb-4">Marketing Digital</h3>
+                    <ul class="space-y-3">
+                        <li>✓ SEO profesional</li>
+                        <li>✓ Integración con redes sociales</li>
+                        <li>✓ Análisis de datos</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Planes y Precios -->
-    <section id="planes" class="py-20 bg-gray-50">
+    <section class="py-20 bg-gray-50">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6" data-aos="fade-up">Planes Promocionales</h2>
-                <p class="text-xl text-red-600 font-bold animate-pulse">¡OFERTA ESPECIAL! Solo para los primeros 10 clientes</p>
+            <h2 class="text-4xl font-bold text-center mb-16">Planes Disponibles</h2>
+            <div class="text-center mb-8 animate__animated animate__pulse animate__infinite">
+                <span class="bg-red-500 text-white px-6 py-3 rounded-full inline-block">
+                    ¡Oferta especial para los primeros 10 clientes!
+                </span>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Plan Básico -->
-                <div class="price-card bg-white rounded-xl shadow-lg p-8" data-aos="fade-up" data-aos-delay="100">
-                    <div class="promocion-badge text-white text-sm">¡OFERTA!</div>
+                <div class="price-card p-8 rounded-2xl shadow-lg border border-gray-200 bg-white">
+                    <div class="promo-badge">¡OFERTA LIMITADA!</div>
                     <h3 class="text-2xl font-bold mb-4">Plan Básico</h3>
                     <div class="mb-4">
-                        <span class="text-gray-400 line-through">Q2,999</span>
+                        <span class="text-gray-400 line-through text-xl">Q2,999</span>
                         <div class="text-4xl font-bold text-blue-600">Q1,000</div>
                     </div>
                     <ul class="space-y-3 mb-8">
                         <li>✓ 3 páginas</li>
-                        <li>✓ Diseño personalizable</li>
-                        <li>✓ Responsive</li>
+                        <li>✓ Diseño responsive</li>
+                        <li>✓ Formulario de contacto</li>
                         <li>✓ SEO básico</li>
+                        <li>✓ Diseño personalizable</li>
                     </ul>
-                    <a href="https://wa.me/50237793306?text=Hola,%20me%20interesa%20el%20Plan%20Básico%20promocional" 
-                       class="block text-center bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transform hover:scale-105 transition">
-                        ¡Aprovechar Oferta!
+                    <a href="https://wa.me/50237793306?text=Hola,%20me%20interesa%20el%20Plan%20Básico%20en%20promoción" 
+                       class="block text-center bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition transform hover:scale-105">
+                        Solicitar Plan
                     </a>
                 </div>
-
                 <!-- Plan Premium -->
-                <div class="price-card bg-white rounded-xl shadow-lg p-8" data-aos="fade-up" data-aos-delay="200">
-                    <div class="promocion-badge text-white text-sm">¡OFERTA!</div>
+                <div class="price-card p-8 rounded-2xl shadow-lg border-2 border-blue-500 bg-white transform scale-105 z-10">
+                    <div class="promo-badge">¡OFERTA LIMITADA!</div>
                     <h3 class="text-2xl font-bold mb-4">Plan Premium</h3>
                     <div class="mb-4">
-                        <span class="text-gray-400 line-through">Q4,999</span>
+                        <span class="text-gray-400 line-through text-xl">Q4,999</span>
                         <div class="text-4xl font-bold text-blue-600">Q2,500</div>
                     </div>
                     <ul class="space-y-3 mb-8">
                         <li>✓ 5 páginas</li>
                         <li>✓ Diseño premium</li>
+                        <li>✓ Blog incluido</li>
                         <li>✓ SEO avanzado</li>
-                        <li>✓ Panel admin</li>
+                        <li>✓ Panel de administración</li>
+                        <li>✓ Diseño personalizable premium</li>
                     </ul>
-                    <a href="https://wa.me/50237793306?text=Hola,%20me%20interesa%20el%20Plan%20Premium%20promocional" 
-                       class="block text-center bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transform hover:scale-105 transition">
-                        ¡Aprovechar Oferta!
-                    </a>
-                </div>
-
-                <!-- Plan Empresarial -->
-                <div class="price-card bg-white rounded-xl shadow-lg p-8" data-aos="fade-up" data-aos-delay="300">
-                    <div class="promocion-badge text-white text-sm">¡OFERTA!</div>
-                    <h3 class="text-2xl font-bold mb-4">Plan Empresarial</h3>
-                    <div class="mb-4">
-                        <span class="text-gray-400 line-through">Q7,999</span>
-                        <div class="text-4xl font-bold text-blue-600">Q5,000</div>
-                    </div>
-                    <ul class="space-y-3 mb-8">
-                        <li>✓ 20 páginas</li>
-                        <li>✓ E-commerce</li>
-                        <li>✓ SEO profesional</li>
-                        <li>✓ Mantenimiento</li>
-                    </ul>
-                    <a href="https://wa.me/50237793306?text=Hola,%20me%20interesa%20el%20Plan%20Empresarial%20promocional" 
-                       class="block text-center bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transform hover:scale-105 transition">
-                        ¡Aprovechar Oferta!
-                    </a>
-                </div>
-
-                <!-- Plan Revendedor -->
-                <div class="price-card bg-gradient-to-br from-purple-500 to-indigo-600 text-white rounded-xl shadow-lg p-8" data-aos="fade-up" data-aos-delay="400">
-                    <h3 class="text-2xl font-bold mb-4">Plan Revendedor</h3>
-                    <div class="text-4xl font-bold mb-4">Precios Especiales</div>
-                    <ul class="space-y-3 mb-8">
-                        <li>✓ Descuentos por volumen</li>
-                        <li>✓ Soporte prioritario</li>
-                        <li>✓ Panel de gestión</li>
-                        <li>✓ Materiales de marketing</li>
-                        <li>✓ Capacitación incluida</li>
-                    </ul>
-                    <a href="https://wa.me/50237793306?text=Hola,%20me%20interesa%20el%20Plan%20Revendedor,%20quisiera%20más%20información" 
-                       class="block text-center bg-white text-purple-600 py-3 rounded-lg hover:bg-gray-100 transform hover:scale-105 transition">
-                        Solicitar Información
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+                    <a href="https://wa.me/50237793306?text=Hola,%20me%20inter
