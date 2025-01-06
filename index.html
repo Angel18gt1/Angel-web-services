@@ -7,147 +7,99 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
     <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-            background: linear-gradient(135deg, #ece9e6, #ffffff);
-        }
-        .animated-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: linear-gradient(135deg, #1a237e, #0d47a1, #6200ea, #00c853);
-            background-size: 400% 400%;
-            animation: gradientAnimation 15s infinite;
-        }
-        @keyframes gradientAnimation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        .particle {
-            position: absolute;
-            width: 15px;
-            height: 15px;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            animation: float 8s infinite ease-in-out, moveParticles 10s infinite linear;
-        }
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-                opacity: 0.6;
-            }
-            50% {
-                transform: translateY(-20px);
-                opacity: 1;
-            }
-        }
-        @keyframes moveParticles {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(200px);
-            }
-        }
-        .particle:nth-child(1) {
-            top: 10%;
-            left: 20%;
-            animation-duration: 12s, 15s;
-        }
-        .particle:nth-child(2) {
-            top: 30%;
-            left: 40%;
-            animation-duration: 10s, 13s;
-        }
-        .particle:nth-child(3) {
-            top: 50%;
-            left: 10%;
-            animation-duration: 8s, 10s;
-        }
-        .particle:nth-child(4) {
-            top: 70%;
-            left: 60%;
-            animation-duration: 14s, 20s;
-        }
-        .particle:nth-child(5) {
-            top: 80%;
-            left: 80%;
-            animation-duration: 9s, 18s;
-        }
+        .gradient-bg { background: linear-gradient(135deg, #1a237e 0%, #0d47a1 100%); }
+        .service-card { transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.1); }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        .whatsapp-btn { position: fixed; bottom: 20px; right: 20px; z-index: 1000; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+        .price-card:hover { transform: scale(1.05); }
     </style>
 </head>
 <body>
-    <!-- Fondo animado -->
-    <div class="animated-background">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-    </div>
-
     <!-- Hero Section -->
-    <header class="text-white py-24">
+    <header class="gradient-bg text-white py-24">
         <div class="container mx-auto px-4 text-center">
             <h1 class="text-6xl font-bold mb-6 animate__animated animate__fadeInDown">Desarrollo Web Elite</h1>
             <p class="text-2xl mb-8 animate__animated animate__fadeInUp">Transformamos tu visión en una presencia digital impactante</p>
             <div class="space-x-4 animate__animated animate__fadeInUp">
-                <a href="https://wa.me/50237793306" target="_blank" 
-                   class="inline-block bg-green-500 text-white px-8 py-4 rounded-lg font-bold hover:bg-green-600 transition">
-                    💬 Contactar por WhatsApp
-                </a>
-                <button onclick="mostrarCotizacion()" 
-                        class="inline-block border-2 border-white text-white px-8 py-4 rounded-lg font-bold hover:bg-white hover:text-blue-900 transition">
-                    🚀 Solicitar Cotización
-                </button>
+                <a href="https://wa.me/50237793306" target="_blank" class="inline-block bg-green-500 text-white px-8 py-4 rounded-lg font-bold hover:bg-green-600 transition"> 💬 Contactar por WhatsApp </a>
+                <button onclick="mostrarCotizacion()" class="inline-block border-2 border-white text-white px-8 py-4 rounded-lg font-bold hover:bg-white hover:text-blue-900 transition"> 🚀 Solicitar Cotización </button>
             </div>
         </div>
     </header>
 
-    <!-- Servicios Premium -->
+    <!-- Planes y Precios -->
     <section class="py-20 bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-16">Servicios Premium</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-                <!-- Servicio 1 -->
-                <div class="service-card bg-gradient-to-br from-blue-500 to-blue-700 p-8 rounded-2xl text-white">
-                    <div class="text-5xl mb-6 floating">🎨</div>
-                    <h3 class="text-2xl font-bold mb-4">Diseño Web Exclusivo</h3>
-                    <ul class="space-y-3">
-                        <li>✓ Diseño personalizado único</li>
-                        <li>✓ Adaptable a todos los dispositivos</li>
-                        <li>✓ Experiencia de usuario premium</li>
+            <h2 class="text-4xl font-bold text-center mb-16">Planes Disponibles</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Plan Básico -->
+                <div class="price-card p-8 rounded-2xl shadow-lg border border-gray-200">
+                    <h3 class="text-2xl font-bold mb-4">Plan Básico</h3>
+                    <div class="text-4xl font-bold mb-6">Q1,000</div>
+                    <ul class="space-y-3 mb-8">
+                        <li>✓ 3 páginas</li>
+                        <li>✓ Diseño responsive</li>
+                        <li>✓ Formulario de contacto</li>
+                        <li>✓ SEO básico</li>
                     </ul>
+                    <a href="#" class="block text-center bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition"> Solicitar Plan </a>
                 </div>
-                <!-- Servicio 2 -->
-                <div class="service-card bg-gradient-to-br from-purple-500 to-purple-700 p-8 rounded-2xl text-white">
-                    <div class="text-5xl mb-6 floating">🚀</div>
-                    <h3 class="text-2xl font-bold mb-4">Desarrollo Avanzado</h3>
-                    <ul class="space-y-3">
-                        <li>✓ Tecnologías de última generación</li>
-                        <li>✓ Alto rendimiento garantizado</li>
-                        <li>✓ Código optimizado</li>
+
+                <!-- Plan Premium -->
+                <div class="price-card p-8 rounded-2xl shadow-lg border border-gray-200 transform scale-105">
+                    <h3 class="text-2xl font-bold mb-4">Plan Premium</h3>
+                    <div class="text-4xl font-bold mb-6">Q2,500</div>
+                    <ul class="space-y-3 mb-8">
+                        <li>✓ 5 páginas</li>
+                        <li>✓ Diseño premium</li>
+                        <li>✓ Blog incluido</li>
+                        <li>✓ SEO avanzado</li>
+                        <li>✓ Panel de administración</li>
                     </ul>
+                    <a href="#" class="block text-center bg-blue-600 text-white py-3 rounded-lg hover:bg-blue700 transition"> Solicitar Plan </a>
                 </div>
-                <!-- Servicio 3 -->
-                <div class="service-card bg-gradient-to-br from-indigo-500 to-indigo-700 p-8 rounded-2xl text-white">
-                    <div class="text-5xl mb-6 floating">📱</div>
-                    <h3 class="text-2xl font-bold mb-4">Marketing Digital</h3>
-                    <ul class="space-y-3">
+
+                <!-- Plan Empresarial -->
+                <div class="price-card p-8 rounded-2xl shadow-lg border border-gray-200">
+                    <h3 class="text-2xl font-bold mb-4">Plan Empresarial</h3>
+                    <div class="text-4xl font-bold mb-6">Q5,000</div>
+                    <ul class="space-y-3 mb-8">
+                        <li>✓ Hasta 20 páginas</li>
+                        <li>✓ E-commerce incluido</li>
+                        <li>✓ Sistema personalizado</li>
                         <li>✓ SEO profesional</li>
-                        <li>✓ Integración con redes sociales</li>
-                        <li>✓ Análisis de datos</li>
+                        <li>✓ Mantenimiento mensual</li>
                     </ul>
+                    <a href="#" class="block text-center bg-blue600 text-white py3 rounded-lg hover:bg-blue700 transition"> Solicitar Plan </a>
                 </div>
+
+                <!-- Nuevo Plan Revendedor/Afiliado -->
+                <div class="price-card p8 rounded-xl shadow-lg border border-gray200">
+                    <h3 class="text2xl font-bold mb4">Plan Revendedor/Afiliado</h3>
+                    <!-- Precio especial aquí -->
+                    <p>Consulta para precios especiales por compra al por mayor.</p>
+                </div>
+
             </div>
+
+            <!-- Banner Promocional -->
+            <p class="text-center text-red-600 mt-10 font-bold">¡Los primeros 10 en comprar obtendrán un descuento especial!</p>
+
         </div>
     </section>
 
-    <!-- Más contenido... -->
+    <!-- WhatsApp Flotante -->
+    <a href="https://wa.me/50237793306" target="_blank" class="whatsapp-btn bg-green500 text-white p4 rounded-full hover:bg-green600 transition"> 
+        <!-- Icono de WhatsApp -->
+    </a>
+
+    <!-- Script para cotización -->
+    <script> 
+        function mostrarCotizacion() { 
+            window.open('https://wa.me/50237793306?text=Hola,%20me%20gustaría%20una%20cotización%20para%20mi%20proyecto%20web', '_blank'); 
+        } 
+    </script>
+
 </body>
 </html>
