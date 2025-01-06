@@ -7,12 +7,43 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
     <style>
-        .gradient-bg { background: linear-gradient(135deg, #1a237e 0%, #0d47a1 100%); }
-        .service-card { transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.1); }
-        .service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
-        .whatsapp-btn { position: fixed; bottom: 20px; right: 20px; z-index: 1000; animation: pulse 2s infinite; }
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
-        .price-card:hover { transform: scale(1.05); }
+        .gradient-bg {
+            background: linear-gradient(135deg, #1a237e 0%, #0d47a1 100%);
+        }
+        .service-card {
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translate(0,  0px); }
+            50%  { transform: translate(0, 15px); }
+            100%   { transform: translate(0, -0px); }   
+        }
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .price-card {
+            transition: all 0.3s ease;
+        }
+        .price-card:hover {
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
@@ -22,11 +53,85 @@
             <h1 class="text-6xl font-bold mb-6 animate__animated animate__fadeInDown">Desarrollo Web Elite</h1>
             <p class="text-2xl mb-8 animate__animated animate__fadeInUp">Transformamos tu visión en una presencia digital impactante</p>
             <div class="space-x-4 animate__animated animate__fadeInUp">
-                <a href="https://wa.me/50237793306" target="_blank" class="inline-block bg-green-500 text-white px-8 py-4 rounded-lg font-bold hover:bg-green-600 transition"> 💬 Contactar por WhatsApp </a>
-                <button onclick="mostrarCotizacion()" class="inline-block border-2 border-white text-white px-8 py-4 rounded-lg font-bold hover:bg-white hover:text-blue-900 transition"> 🚀 Solicitar Cotización </button>
+                <a href="https://wa.me/50237793306" target="_blank" 
+                   class="inline-block bg-green-500 text-white px-8 py-4 rounded-lg font-bold hover:bg-green-600 transition">
+                    💬 Contactar por WhatsApp
+                </a>
+                <button onclick="mostrarCotizacion()" 
+                        class="inline-block border-2 border-white text-white px-8 py-4 rounded-lg font-bold hover:bg-white hover:text-blue-900 transition">
+                    🚀 Solicitar Cotización
+                </button>
             </div>
         </div>
     </header>
+
+    <!-- Servicios Premium -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16">Servicios Premium</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                <!-- Servicio 1 -->
+                <div class="service-card bg-gradient-to-br from-blue-500 to-blue-700 p-8 rounded-2xl text-white">
+                    <div class="text-5xl mb-6 floating">🎨</div>
+                    <h3 class="text-2xl font-bold mb-4">Diseño Web Exclusivo</h3>
+                    <ul class="space-y-3">
+                        <li>✓ Diseño personalizado único</li>
+                        <li>✓ Adaptable a todos los dispositivos</li>
+                        <li>✓ Experiencia de usuario premium</li>
+                    </ul>
+                </div>
+                <!-- Servicio 2 -->
+                <div class="service-card bg-gradient-to-br from-purple-500 to-purple-700 p-8 rounded-2xl text-white">
+                    <div class="text-5xl mb-6 floating">🚀</div>
+                    <h3 class="text-2xl font-bold mb-4">Desarrollo Avanzado</h3>
+                    <ul class="space-y-3">
+                        <li>✓ Tecnologías de última generación</li>
+                        <li>✓ Alto rendimiento garantizado</li>
+                        <li>✓ Código optimizado</li>
+                    </ul>
+                </div>
+                <!-- Servicio 3 -->
+                <div class="service-card bg-gradient-to-br from-indigo-500 to-indigo-700 p-8 rounded-2xl text-white">
+                    <div class="text-5xl mb-6 floating">📱</div>
+                    <h3 class="text-2xl font-bold mb-4">Marketing Digital</h3>
+                    <ul class="space-y-3">
+                        <li>✓ SEO profesional</li>
+                        <li>✓ Integración con redes sociales</li>
+                        <li>✓ Análisis de datos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Por qué elegirnos -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16">¿Por qué Elegirnos?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="text-5xl mb-4">⚡</div>
+                    <h3 class="text-xl font-bold mb-2">Velocidad</h3>
+                    <p>Sitios web ultrarrápidos</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl mb-4">🛡️</div>
+                    <h3 class="text-xl font-bold mb-2">Seguridad</h3>
+                    <p>Protección garantizada</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl mb-4">📱</div>
+                    <h3 class="text-xl font-bold mb-2">Responsive</h3>
+                    <p>Perfecto en todo dispositivo</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl mb-4">🎯</div>
+                    <h3 class="text-xl font-bold mb-2">SEO</h3>
+                    <p>Optimizado para buscadores</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Planes y Precios -->
     <section class="py-20 bg-white">
@@ -36,70 +141,70 @@
                 <!-- Plan Básico -->
                 <div class="price-card p-8 rounded-2xl shadow-lg border border-gray-200">
                     <h3 class="text-2xl font-bold mb-4">Plan Básico</h3>
-                    <div class="text-4xl font-bold mb-6">Q1,000</div>
+                    <div class="text-4xl font-bold mb-6">Q2,999</div>
                     <ul class="space-y-3 mb-8">
-                        <li>✓ 3 páginas</li>
+                        <li>✓ 5 páginas</li>
                         <li>✓ Diseño responsive</li>
                         <li>✓ Formulario de contacto</li>
                         <li>✓ SEO básico</li>
                     </ul>
-                    <a href="#" class="block text-center bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition"> Solicitar Plan </a>
+                    <a href="https://wa.me/50237793306?text=Hola,%20me%20interesa%20el%20Plan%20Básico" 
+                       class="block text-center bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition">
+                        Solicitar Plan
+                    </a>
                 </div>
-
                 <!-- Plan Premium -->
-                <div class="price-card p-8 rounded-2xl shadow-lg border border-gray-200 transform scale-105">
+                <div class="price-card p-8 rounded-2xl shadow-lg border-2 border-blue-500 transform scale-105">
+                    <div class="absolute top-0 right-0 bg-blue-500 text-white px-4 py-1 rounded-bl-lg">
+                        Más Popular
+                    </div>
                     <h3 class="text-2xl font-bold mb-4">Plan Premium</h3>
-                    <div class="text-4xl font-bold mb-6">Q2,500</div>
+                    <div class="text-4xl font-bold mb-6">Q4,999</div>
                     <ul class="space-y-3 mb-8">
-                        <li>✓ 5 páginas</li>
+                        <li>✓ 10 páginas</li>
                         <li>✓ Diseño premium</li>
                         <li>✓ Blog incluido</li>
                         <li>✓ SEO avanzado</li>
                         <li>✓ Panel de administración</li>
                     </ul>
-                    <a href="#" class="block text-center bg-blue-600 text-white py-3 rounded-lg hover:bg-blue700 transition"> Solicitar Plan </a>
+                    <a href="https://wa.me/50237793306?text=Hola,%20me%20interesa%20el%20Plan%20Premium" 
+                       class="block text-center bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition">
+                        Solicitar Plan
+                    </a>
                 </div>
-
                 <!-- Plan Empresarial -->
                 <div class="price-card p-8 rounded-2xl shadow-lg border border-gray-200">
                     <h3 class="text-2xl font-bold mb-4">Plan Empresarial</h3>
-                    <div class="text-4xl font-bold mb-6">Q5,000</div>
+                    <div class="text-4xl font-bold mb-6">Q7,999</div>
                     <ul class="space-y-3 mb-8">
-                        <li>✓ Hasta 20 páginas</li>
+                        <li>✓ Páginas ilimitadas</li>
                         <li>✓ E-commerce incluido</li>
                         <li>✓ Sistema personalizado</li>
                         <li>✓ SEO profesional</li>
                         <li>✓ Mantenimiento mensual</li>
                     </ul>
-                    <a href="#" class="block text-center bg-blue600 text-white py3 rounded-lg hover:bg-blue700 transition"> Solicitar Plan </a>
+                    <a href="https://wa.me/50237793306?text=Hola,%20me%20interesa%20el%20Plan%20Empresarial" 
+                       class="block text-center bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition">
+                        Solicitar Plan
+                    </a>
                 </div>
-
-                <!-- Nuevo Plan Revendedor/Afiliado -->
-                <div class="price-card p8 rounded-xl shadow-lg border border-gray200">
-                    <h3 class="text2xl font-bold mb4">Plan Revendedor/Afiliado</h3>
-                    <!-- Precio especial aquí -->
-                    <p>Consulta para precios especiales por compra al por mayor.</p>
-                </div>
-
             </div>
-
-            <!-- Banner Promocional -->
-            <p class="text-center text-red-600 mt-10 font-bold">¡Los primeros 10 en comprar obtendrán un descuento especial!</p>
-
         </div>
     </section>
 
     <!-- WhatsApp Flotante -->
-    <a href="https://wa.me/50237793306" target="_blank" class="whatsapp-btn bg-green500 text-white p4 rounded-full hover:bg-green600 transition"> 
-        <!-- Icono de WhatsApp -->
+    <a href="https://wa.me/50237793306" 
+       target="_blank" 
+       class="whatsapp-btn bg-green-500 text-white p-4 rounded-full hover:bg-green-600 transition">
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 1.856.001 3.598.723 4.907 2.034 1.31 1.311 2.031 3.054 2.03 4.908-.001 3.825-3.113 6.938-6.937 6.938z"/>
+        </svg>
     </a>
 
-    <!-- Script para cotización -->
-    <script> 
-        function mostrarCotizacion() { 
-            window.open('https://wa.me/50237793306?text=Hola,%20me%20gustaría%20una%20cotización%20para%20mi%20proyecto%20web', '_blank'); 
-        } 
+    <script>
+        function mostrarCotizacion() {
+            window.open('https://wa.me/50237793306?text=Hola,%20me%20gustaría%20una%20cotización%20para%20mi%20proyecto%20web', '_blank');
+        }
     </script>
-
 </body>
 </html>
