@@ -7,6 +7,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
     <style>
+        body {
+            background: linear-gradient(135deg, #ece9e6, #ffffff);
+        }
         .gradient-bg {
             background: linear-gradient(135deg, #1a237e 0%, #0d47a1 100%);
         }
@@ -44,13 +47,9 @@
         .price-card:hover {
             transform: scale(1.05);
         }
-        .promotion {
-            background: rgba(255, 215, 0, 0.2);
-            color: #ff9800;
-            font-weight: bold;
-            padding: 5px 10px;
-            border-radius: 5px;
-            display: inline-block;
+        .price-before {
+            text-decoration: line-through;
+            color: #a0a0a0;
         }
     </style>
 </head>
@@ -112,34 +111,64 @@
         </div>
     </section>
 
-    <!-- Planes y Precios -->
+    <!-- Por qué elegirnos -->
     <section class="py-20 bg-gray-50">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-16">Planes Disponibles</h2>
+            <h2 class="text-4xl font-bold text-center mb-16">¿Por qué Elegirnos?</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="text-5xl mb-4">⚡</div>
+                    <h3 class="text-xl font-bold mb-2">Velocidad</h3>
+                    <p>Sitios web ultrarrápidos</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl mb-4">🛡️</div>
+                    <h3 class="text-xl font-bold mb-2">Seguridad</h3>
+                    <p>Protección garantizada</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl mb-4">📱</div>
+                    <h3 class="text-xl font-bold mb-2">Responsive</h3>
+                    <p>Perfecto en todo dispositivo</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl mb-4">🎯</div>
+                    <h3 class="text-xl font-bold mb-2">SEO</h3>
+                    <p>Optimizado para buscadores</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Planes y Precios -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16">Planes Disponibles</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Plan Básico -->
-                <div class="price-card p-8 rounded-2xl shadow-lg border border-gray-200">
+                <div class="price-card p-8 rounded-2xl shadow-lg border border-gray-200 relative">
                     <h3 class="text-2xl font-bold mb-4">Plan Básico</h3>
-                    <div class="text-4xl font-bold mb-2">Q1,000</div>
-                    <p class="promotion mb-4">¡Promoción: Los primeros 10 en comprar obtendrán un descuento especial!</p>
+                    <div class="text-lg price-before mb-2">Q1,200</div>
+                    <div class="text-4xl font-bold text-green-500 mb-6">Q1,000</div>
                     <ul class="space-y-3 mb-8">
                         <li>✓ 3 páginas</li>
-                        <li>✓ Diseño personalizable</li>
-                        <li>✓ Responsive</li>
+                        <li>✓ Diseño responsive</li>
+                        <li>✓ Formulario de contacto</li>
                         <li>✓ SEO básico</li>
                     </ul>
                     <a href="https://wa.me/50237793306?text=Hola,%20me%20interesa%20el%20Plan%20Básico" 
-                       class="block text-center bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition">
-                        Solicitar Plan
+                       class="block text-center bg-green-500 text-white py-3 rounded-lg hover:bg-green-600 transition">
+                        ¡Aprovecha el Descuento!
                     </a>
                 </div>
                 <!-- Plan Premium -->
-                <div class="price-card p-8 rounded-2xl shadow-lg border-2 border-blue-500 transform scale-105">
+                <div class="price-card p-8 rounded-2xl shadow-lg border-2 border-blue-500 transform scale-105 relative">
                     <div class="absolute top-0 right-0 bg-blue-500 text-white px-4 py-1 rounded-bl-lg">
                         Más Popular
                     </div>
                     <h3 class="text-2xl font-bold mb-4">Plan Premium</h3>
-                    <div class="text-4xl font-bold mb-6">Q2,500</div>
+                    <div class="text-lg price-before mb-2">Q3,000</div>
+                    <div class="text-4xl font-bold text-green-500 mb-6">Q2,500</div>
                     <ul class="space-y-3 mb-8">
                         <li>✓ 5 páginas</li>
                         <li>✓ Diseño premium</li>
@@ -148,14 +177,15 @@
                         <li>✓ Panel de administración</li>
                     </ul>
                     <a href="https://wa.me/50237793306?text=Hola,%20me%20interesa%20el%20Plan%20Premium" 
-                       class="block text-center bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition">
-                        Solicitar Plan
+                       class="block text-center bg-green-500 text-white py-3 rounded-lg hover:bg-green-600 transition">
+                        ¡Aprovecha el Descuento!
                     </a>
                 </div>
                 <!-- Plan Empresarial -->
-                <div class="price-card p-8 rounded-2xl shadow-lg border border-gray-200">
+                <div class="price-card p-8 rounded-2xl shadow-lg border border-gray-200 relative">
                     <h3 class="text-2xl font-bold mb-4">Plan Empresarial</h3>
-                    <div class="text-4xl font-bold mb-6">Q5,000</div>
+                    <div class="text-lg price-before mb-2">Q6,000</div>
+                    <div class="text-4xl font-bold text-green-500 mb-6">Q5,000</div>
                     <ul class="space-y-3 mb-8">
                         <li>✓ 20 páginas</li>
                         <li>✓ E-commerce incluido</li>
@@ -164,22 +194,8 @@
                         <li>✓ Mantenimiento mensual</li>
                     </ul>
                     <a href="https://wa.me/50237793306?text=Hola,%20me%20interesa%20el%20Plan%20Empresarial" 
-                       class="block text-center bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition">
-                        Solicitar Plan
-                    </a>
-                </div>
-                <!-- Plan Revendedor/Afiliado -->
-                <div class="price-card p-8 rounded-2xl shadow-lg border border-gray-200">
-                    <h3 class="text-2xl font-bold mb-4">Plan Revendedor/Afiliado</h3>
-                    <div class="text-4xl font-bold mb-6">Precio Especial</div>
-                    <ul class="space-y-3 mb-8">
-                        <li>✓ Compra por mayor</li>
-                        <li>✓ Descuentos exclusivos</li>
-                        <li>✓ Soporte especializado</li>
-                    </ul>
-                    <a href="https://wa.me/50237793306?text=Hola,%20me%20interesa%20el%20Plan%20Revendedor/Afiliado" 
-                       class="block text-center bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition">
-                        Solicitar Plan
+                       class="block text-center bg-green-500 text-white py-3 rounded-lg hover:bg-green-600 transition">
+                        ¡Aprovecha el Descuento!
                     </a>
                 </div>
             </div>
@@ -191,4 +207,4 @@
        target="_blank" 
        class="whatsapp-btn bg-green-500 text-white p-4 rounded-full hover:bg-green-600 transition">
         <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462
